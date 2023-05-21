@@ -1,5 +1,10 @@
 class RentalsController < ApplicationController
-  def index
+  def new
+  end
 
+  def create
+  end
+
+  def dashboard
   end
 end
