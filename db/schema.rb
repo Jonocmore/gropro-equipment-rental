@@ -2,7 +2,6 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-#
 # This file is the source Rails uses to define your schema when running `bin/rails
 # db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
@@ -25,7 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_135727) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_equipment_on_user_id"
   end
 
   create_table "rentals", force: :cascade do |t|
