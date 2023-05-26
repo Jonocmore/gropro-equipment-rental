@@ -101,7 +101,7 @@ Equipment.create(
   user_id: rand(1..5),
   item_url: "quecbpnbjkzjtheeg8p7", # Replace with actual image URL
   description: "Garden roller is agricultural equipment used to flatten land or
-   breaking up large lumps of soil after ploughing is done."
+   breaking up large lumps of soil after ploughing is done.",
 )
 
 Equipment.create(
@@ -113,8 +113,24 @@ Equipment.create(
   rented: 0,
   user_id: rand(1..5),
   item_url: "u3xig2uxhnmfle6jqeoe", # Replace with actual image URL
-  description: 'Used for cutting of home grass.'
+  description: "Used for cutting of home grass.",
 )
+
+Equipment.create(
+  category: "garden",
+  name: "Rake",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "zhkb4yckwtjsrmbuvn2v", # Replace with actual image URL
+  description: " A rake is a broom for outside use; a horticultural implement
+  consisting of a toothed bar fixed transversely to a handle. It is used to
+  collect leaves, hay, grass, etc., and, in gardening, for loosening the soil,
+  light weeding and levelling, removing dead grass from lawns"
+)
+
 puts "#{Equipment.all.count} equipment items created"
 
 # Rental data
