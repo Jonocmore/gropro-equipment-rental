@@ -10,3 +10,118 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 360px;
+  height: 800px;
+  position: relative;
+  top: 30px;
+  background-color: #F3EFE0;
+}
+
+.header {
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  position: absolute;
+  width: 320px;
+  height: 78px;
+  left: 20px;
+  top: 94px;
+}
+
+.menu-icon, .add-icon {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.menu-icon {
+  left: 10px;
+}
+
+.header-icon {
+  margin: auto;
+  display: block;
+  max-width: 360px;
+}
+
+.add-icon {
+  right: 10px;
+}
+
+.logo {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.search-bar {
+  margin: 10px;
+  height: 35px;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  background: #90A955;
+  border-radius: 100px;
+}
+
+.filter-bar, .location-bar {
+  margin: 10px;
+}
+
+.equipment-card {
+  box-sizing: border-box;
+  position: relative;
+  background: rgba(144, 169, 85, 0.5);
+  border: 1px solid #ECF39E;
+  border-radius: 10px;
+  width: 151px;
+  height: 170px;
+  font-family: 'outfit';
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 5px; /* adjust as needed */
+}
+
+.card-image {
+  max-width: 144px;
+  max-height: 75px; /* Adjust this to a suitable value */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.nav-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.equipment-card p {
+  font-size: 10px; /* Adjust this to a suitable value */
+  text-align: center;
+}
