@@ -56,7 +56,7 @@ User.create(
 
 puts "#{User.all.count} users created"
 
-# Equipment data
+# Equipment data - Garden
 
 puts "Creating equipment rentals"
 
@@ -78,9 +78,6 @@ location = [
 #   "carpentry",
 # ]
 
-# category.each do |category|
-# 5.times do
-# Create a new equipment
 Equipment.create(
   category: "garden",
   name: "Fork",
@@ -89,13 +86,35 @@ Equipment.create(
   price: Faker::Number.between(from: 10.00, to: 10000.00),
   rented: 0,
   user_id: rand(1..5),
-  item_url: "kq5mwn8gxn84ywbsbyfl", # Replace with actual image URL
+  item_url: "jos0zjj3gk6gagkohyu2", # Replace with actual image URL
   description: "Used for loosening, lifting and turning over soil or compost in gardening and farming.
       It can be used to rake out stones and weeds and break up clods",
 )
-# end
-# end
 
+Equipment.create(
+  category: "garden",
+  name: "Garden Roller",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "quecbpnbjkzjtheeg8p7", # Replace with actual image URL
+  description: "Garden roller is agricultural equipment used to flatten land or
+   breaking up large lumps of soil after ploughing is done."
+)
+
+Equipment.create(
+  category: "garden",
+  name: "Lawnmower (petrol)",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "u3xig2uxhnmfle6jqeoe", # Replace with actual image URL
+  description: 'Used for cutting of home grass.'
+)
 puts "#{Equipment.all.count} equipment items created"
 
 # Rental data
