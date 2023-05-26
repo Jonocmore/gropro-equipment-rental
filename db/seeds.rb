@@ -75,7 +75,7 @@ location = [
 #   "farm",
 #   "power tools",
 #   "drilling",
-#   "carpentry",
+#   "generators",
 # ]
 
 Equipment.create(
@@ -322,11 +322,179 @@ Equipment.create(
   to cut back thick branches and bushes as a cheaper alternative to the chainsaw.",
 )
 
-# Equipment data -
+# Equipment data - drilling
 
+Equipment.create(
+  category: "drilling",
+  name: "Rotary Drill",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "zyx8wmivez2n89exda1z", # Replace with actual image URL
+  description: "The perfect compact drill for all your concrete and masonry
+  drilling, small yet very robust and effective.",
+)
 
+Equipment.create(
+  category: "drilling",
+  name: "Impact Drill",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "k6hnf0utdeffduuojn0i", # Replace with actual image URL
+  description: "Impact drills are suited to a variety of jobs. It can be used
+  in brick, steel & wood. The extended front handle allows greater control
+  for high torque applications.",
+)
 
+Equipment.create(
+  category: "drilling",
+  name: "Breaker Medium Duty",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "noiuzkrcqtkgzmmdm4z9", # Replace with actual image URL
+  description: "Suited to breaking concrete slabs up to 150mm thick. Excellent
+  handling due to large handle",
+)
 
+Equipment.create(
+  category: "drilling",
+  name: "Breaker Light Duty",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "qus4wjax3s7ndzednili", # Replace with actual image URL
+  description: "Ideal for Breaking down walls or where other heavier breakers
+  become unsuitable for horizontal handling. Also ideal for Heavy plaster
+  and heavy tile removal on wall & floor.",
+)
+
+Equipment.create(
+  category: "drilling",
+  name: "Breaker Heavy Duty",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "i0hmkvsf4age15prmrzs", # Replace with actual image URL
+  description: "Designed for heavy breaking applications and demolition work at
+  floor level. Breaking up asphalt the quick, easy way for road building,
+  repair work and pipe laying",
+)
+
+Equipment.create(
+  category: "drilling",
+  name: "Magnetic Base Drill",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "ascd9cli490ougnfkzxb", # Replace with actual image URL
+  description: "This magnetic drill is used for cutting precision holes of up to 50mm in most types of steel
+  Its magnet base allows for drilling both horizontally and vertically",
+)
+
+# Equipment data - Generators
+
+Equipment.create(
+  category: "generators",
+  name: "Welder Petrol",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "uvusscemsobd542f0pnn", # Replace with actual image URL
+  description: "For use on light to heavy metal fabrication/ construction sites
+  where there is no/ un-adequate electrical power to drive a welding plant.",
+)
+
+Equipment.create(
+  category: "generators",
+  name: "Light Tower",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "egsruusxe15tcvfqlobc", # Replace with actual image URL
+  description: "The light tower is normally used for night construction and
+  other field operations in the sectors of municipal engineering, road, bridge,
+  port and mining etc as well as in the instance of night rush repairs and
+  disaster relief operations.",
+)
+
+Equipment.create(
+  category: "generators",
+  name: "Generator 10 KVA",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "udlpuuy40nvzr9idak0f", # Replace with actual image URL
+  description: "For use on light to medium construction sites where electrical
+   power is needed. Normal household sites without power or power interruption.
+   This power plant is easily started by means of a key and is fitted with a
+   manual rope starter if in an event of a faulty starter or flat battery.",
+)
+
+Equipment.create(
+  category: "generators",
+  name: "Generator 8.5 KVA",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "s6vcjkh1qdyzrhrnguuh", # Replace with actual image URL
+  description: "For use on light to medium construction sites where electrical
+  power is needed. Normal household sites without power or power interruption.
+  This power plant is easily started by use of a manual rope starter so there
+  is no need to worry about a flat acid battery or missing keys.",
+)
+
+Equipment.create(
+  category: "generators",
+  name: "Generator 5 KVA(Semi Silent - Diesel)",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "gr4e46r46xbjmvxetzyr", # Replace with actual image URL
+  description: "For use on light to medium construction sites where electrical
+  power is needed but without the noise and vibration of a normal open frame
+  generator. Normal household sites without power or power interruption. This
+  power plant is easily started by use of a manual rope starter so there is
+  no need to worry about a flat acid battery or missing keys.",
+)
+
+Equipment.create(
+  category: "generators",
+  name: "Generator 5.5 KVA",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "ad2zuxtnf5d5vhqzhbsn", # Replace with actual image URL
+  description: "For use on light to medium construction sites where electrical
+  power is needed. Normal household sites without power or power interruption.
+  This power plant is easily started by use of a manual rope starter so there
+  is no need to worry about a flat acid battery or missing keys.",
+)
 
 puts "#{Equipment.all.count} equipment items created"
 
