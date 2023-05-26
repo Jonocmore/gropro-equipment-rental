@@ -8,7 +8,7 @@
 
 # Define regions of Western Cape, South Africa
 
-require 'faker'
+require "faker"
 
 # User data
 
@@ -17,46 +17,46 @@ puts "Creating users"
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user1',
-  email: 'user1@gmail.com',
-  password: 'password'
+  username: "user1",
+  email: "user1@gmail.com",
+  password: "password",
 )
 
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user2',
-  email: 'user2@gmail.com',
-  password: 'password'
+  username: "user2",
+  email: "user2@gmail.com",
+  password: "password",
 )
 
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user3',
-  email: 'user3@gmail.com',
-  password: 'password'
+  username: "user3",
+  email: "user3@gmail.com",
+  password: "password",
 )
 
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user4',
-  email: 'user4@gmail.com',
-  password: 'password'
+  username: "user4",
+  email: "user4@gmail.com",
+  password: "password",
 )
 
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user5',
-  email: 'user5@gmail.com',
-  password: 'password'
+  username: "user5",
+  email: "user5@gmail.com",
+  password: "password",
 )
 
 puts "#{User.all.count} users created"
 
-# Equipment data
+# Equipment data - Garden
 
 puts "Creating equipment rentals"
 
@@ -66,34 +66,70 @@ location = [
   "George",
   "Paarl",
   "Worcester",
-  "Hermanus"
+  "Hermanus",
 ]
 
-category = [
-  "garden",
-  "lawn",
-  "farm",
-  "power tools",
-  "pool",
-  "carpentry"
-]
+# category = [
+#   "garden",
+#   "lawn",
+#   "farm",
+#   "power tools",
+#   "pool",
+#   "carpentry",
+# ]
 
-category.each do |category|
-  5.times do
-    # Create a new equipment
-    Equipment.create!(
-      category: category,
-      name: "#{Faker::Commerce.product_name} #{category.capitalize} Tool",
-      location: location.sample,
-      quantity: rand(1..3),
-      price: Faker::Number.between(from: 10.00, to: 10000.00),
-      rented: 0,
-      user_id: rand(1..5),
-      item_url: "https://example.com/images/#{Faker::Alphanumeric.alphanumeric(number: 10)}.jpg", # Replace with actual image URL
-      description: Faker::Lorem.sentence(word_count: 25 + Random.rand(25)),
-    )
-  end
-end
+Equipment.create(
+  category: "garden",
+  name: "Fork",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 10000.00),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "jos0zjj3gk6gagkohyu2", # Replace with actual image URL
+  description: "Used for loosening, lifting and turning over soil or compost in gardening and farming.
+      It can be used to rake out stones and weeds and break up clods",
+)
+
+Equipment.create(
+  category: "garden",
+  name: "Garden Roller",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "quecbpnbjkzjtheeg8p7", # Replace with actual image URL
+  description: "Garden roller is agricultural equipment used to flatten land or
+   breaking up large lumps of soil after ploughing is done.",
+)
+
+Equipment.create(
+  category: "garden",
+  name: "Lawnmower (petrol)",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "u3xig2uxhnmfle6jqeoe", # Replace with actual image URL
+  description: "Used for cutting of home grass.",
+)
+
+Equipment.create(
+  category: "garden",
+  name: "Rake",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "zhkb4yckwtjsrmbuvn2v", # Replace with actual image URL
+  description: " A rake is a broom for outside use; a horticultural implement
+  consisting of a toothed bar fixed transversely to a handle. It is used to
+  collect leaves, hay, grass, etc., and, in gardening, for loosening the soil,
+  light weeding and levelling, removing dead grass from lawns"
+)
 
 puts "#{Equipment.all.count} equipment items created"
 
@@ -102,38 +138,38 @@ puts "#{Equipment.all.count} equipment items created"
 puts "Creating rentals"
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 puts "#{Rental.all.count} rentals created"
