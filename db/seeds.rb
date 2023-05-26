@@ -5,3 +5,137 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# Define regions of Western Cape, South Africa
+
+require 'faker'
+
+# User data
+
+puts "Creating users"
+
+User.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  username: 'user1',
+  email: 'user1@gmail.com',
+  password: 'password'
+)
+
+User.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  username: 'user2',
+  email: 'user2@gmail.com',
+  password: 'password'
+)
+
+User.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  username: 'user3',
+  email: 'user3@gmail.com',
+  password: 'password'
+)
+
+User.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  username: 'user4',
+  email: 'user4@gmail.com',
+  password: 'password'
+)
+
+User.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  username: 'user5',
+  email: 'user5@gmail.com',
+  password: 'password'
+)
+
+puts "#{User.all.count} users created"
+
+# Equipment data
+
+puts "Creating equipment rentals"
+
+location = [
+  "Cape Town",
+  "Stellenbosch",
+  "George",
+  "Paarl",
+  "Worcester",
+  "Hermanus"
+]
+
+category = [
+  "garden",
+  "lawn",
+  "farm",
+  "power tools",
+  "pool",
+  "carpentry"
+]
+
+category.each do |category|
+  5.times do
+    # Create a new equipment
+    Equipment.create!(
+      category: category,
+      name: "#{Faker::Commerce.product_name} #{category.capitalize} Tool",
+      location: location.sample,
+      quantity: rand(1..3),
+      price: Faker::Number.between(from: 10.00, to: 10000.00),
+      rented: 0,
+      user_id: rand(1..5),
+      item_url: "https://example.com/images/#{Faker::Alphanumeric.alphanumeric(number: 10)}.jpg", # Replace with actual image URL
+      description: Faker::Lorem.sentence(word_count: 25 + Random.rand(25)),
+    )
+  end
+end
+
+puts "#{Equipment.all.count} equipment items created"
+
+# Rental data
+
+puts "Creating rentals"
+
+Rental.create(
+  rented_date: '25 May 2023',
+  return_date: '30 May 2023',
+  equipment_id: rand(1..5),
+  user_id: rand(1..5)
+)
+
+Rental.create(
+  rented_date: '25 May 2023',
+  return_date: '30 May 2023',
+  equipment_id: rand(1..5),
+  user_id: rand(1..5)
+)
+
+Rental.create(
+  rented_date: '25 May 2023',
+  return_date: '30 May 2023',
+  equipment_id: rand(1..5),
+  user_id: rand(1..5)
+)
+
+Rental.create(
+  rented_date: '25 May 2023',
+  return_date: '30 May 2023',
+  equipment_id: rand(1..5),
+  user_id: rand(1..5)
+)
+
+Rental.create(
+  rented_date: '25 May 2023',
+  return_date: '30 May 2023',
+  equipment_id: rand(1..5),
+  user_id: rand(1..5)
+)
+
+puts "#{Rental.all.count} rentals created"
+
+puts "Database completed"
