@@ -8,7 +8,7 @@
 
 # Define regions of Western Cape, South Africa
 
-require 'faker'
+require "faker"
 
 # User data
 
@@ -17,41 +17,41 @@ puts "Creating users"
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user1',
-  email: 'user1@gmail.com',
-  password: 'password'
+  username: "user1",
+  email: "user1@gmail.com",
+  password: "password",
 )
 
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user2',
-  email: 'user2@gmail.com',
-  password: 'password'
+  username: "user2",
+  email: "user2@gmail.com",
+  password: "password",
 )
 
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user3',
-  email: 'user3@gmail.com',
-  password: 'password'
+  username: "user3",
+  email: "user3@gmail.com",
+  password: "password",
 )
 
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user4',
-  email: 'user4@gmail.com',
-  password: 'password'
+  username: "user4",
+  email: "user4@gmail.com",
+  password: "password",
 )
 
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  username: 'user5',
-  email: 'user5@gmail.com',
-  password: 'password'
+  username: "user5",
+  email: "user5@gmail.com",
+  password: "password",
 )
 
 puts "#{User.all.count} users created"
@@ -66,34 +66,35 @@ location = [
   "George",
   "Paarl",
   "Worcester",
-  "Hermanus"
+  "Hermanus",
 ]
 
-category = [
-  "garden",
-  "lawn",
-  "farm",
-  "power tools",
-  "pool",
-  "carpentry"
-]
+# category = [
+#   "garden",
+#   "lawn",
+#   "farm",
+#   "power tools",
+#   "pool",
+#   "carpentry",
+# ]
 
-category.each do |category|
-  5.times do
-    # Create a new equipment
-    Equipment.create!(
-      category: category,
-      name: "#{Faker::Commerce.product_name} #{category.capitalize} Tool",
-      location: location.sample,
-      quantity: rand(1..3),
-      price: Faker::Number.between(from: 10.00, to: 10000.00),
-      rented: 0,
-      user_id: rand(1..5),
-      item_url: "https://example.com/images/#{Faker::Alphanumeric.alphanumeric(number: 10)}.jpg", # Replace with actual image URL
-      description: Faker::Lorem.sentence(word_count: 25 + Random.rand(25)),
-    )
-  end
-end
+# category.each do |category|
+# 5.times do
+# Create a new equipment
+Equipment.create(
+  category: "garden",
+  name: "Fork",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 10000.00),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "kq5mwn8gxn84ywbsbyfl", # Replace with actual image URL
+  description: "Used for loosening, lifting and turning over soil or compost in gardening and farming.
+      It can be used to rake out stones and weeds and break up clods",
+)
+# end
+# end
 
 puts "#{Equipment.all.count} equipment items created"
 
@@ -102,38 +103,38 @@ puts "#{Equipment.all.count} equipment items created"
 puts "Creating rentals"
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 Rental.create(
-  rented_date: '25 May 2023',
-  return_date: '30 May 2023',
+  rented_date: "25 May 2023",
+  return_date: "30 May 2023",
   equipment_id: rand(1..5),
-  user_id: rand(1..5)
+  user_id: rand(1..5),
 )
 
 puts "#{Rental.all.count} rentals created"
