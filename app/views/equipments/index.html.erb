@@ -4,6 +4,7 @@
 
       <% @equipment.each do |equip|  %>
       <%= cl_image_tag("#{equip.item_url}",width: 400, height: 300, crop: :fill) %>
+      <p><%= equip.name %></p>
       <p><%= equip.description %></p>
       <p><%= equip.price %></p>
       <% end %>
