@@ -74,7 +74,7 @@ location = [
 #   "lawn",
 #   "farm",
 #   "power tools",
-#   "pool",
+#   "drilling",
 #   "carpentry",
 # ]
 
@@ -238,6 +238,95 @@ Equipment.create(
   item_url: "l08lawkoqbyo1q5ghov7", # Replace with actual image URL
   description: "Ploughing of small area soil or between vineyards. Also used to soften soil for digging long trenches.",
 )
+
+# Equipment data - Power Tools
+
+Equipment.create(
+  category: "power tools",
+  name: "Router",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "kropglitxkf4yywufkya", # Replace with actual image URL
+  description: "For use with wood working application such as bevelling,routing
+  and notching.",
+)
+
+Equipment.create(
+  category: "power tools",
+  name: "Mixer",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "tb06r6jlsrpgrwbxrjel", # Replace with actual image URL
+  description: "Use Hire-It's new Italian Universal Automatic mixer for tile
+  adhesives, cement, grout, paint & epoxy resins.",
+)
+
+Equipment.create(
+  category: "power tools",
+  name: "Grinder (Angle Grinder)",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "nmghyvxhb7uerk8j9gaa", # Replace with actual image URL
+  description: "The W2000 9” angle grinder is ideal for cutting, grinding and
+  sanding applications. It is commonly used in the building and automotive
+  industry",
+)
+
+Equipment.create(
+  category: "power tools",
+  name: "Compressor 100L",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "lcj8zyzdulhvs1wnnlr3", # Replace with actual image URL
+  description: "Used as compressed air source for various pneumatic tools and
+  applications including spray painting, pneumatic stapling, pneumatic nailing,
+  pneumatic cleaning or blowers.",
+)
+
+Equipment.create(
+  category: "power tools",
+  name: "Belt Sander",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "hrdk0sg1bvsgcoeervqy", # Replace with actual image URL
+  description: "Belt Sanders are handy for removing, surface sanding, smoothing
+  and cleaning. They can be used on wood, plastic and metal.",
+)
+
+Equipment.create(
+  category: "power tools",
+  name: "All Purpose Saw (Electric)",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "diiowrdt9sk3tdqsuadn", # Replace with actual image URL
+  description: "The All Purpose Saw is the perfect saw for all your household
+  tasks such as cutting boards, metal and plastic pipes. Outdoors it can be used
+  to cut back thick branches and bushes as a cheaper alternative to the chainsaw.",
+)
+
+# Equipment data -
+
+
+
+
 
 puts "#{Equipment.all.count} equipment items created"
 
