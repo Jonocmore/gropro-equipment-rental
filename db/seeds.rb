@@ -128,7 +128,34 @@ Equipment.create(
   description: " A rake is a broom for outside use; a horticultural implement
   consisting of a toothed bar fixed transversely to a handle. It is used to
   collect leaves, hay, grass, etc., and, in gardening, for loosening the soil,
-  light weeding and levelling, removing dead grass from lawns"
+  light weeding and levelling, removing dead grass from lawns",
+)
+
+Equipment.create(
+  category: "garden",
+  name: "Shovel/Spade",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "cs3kqp2w7ky67kygg6bl", # Replace with actual image URL
+  description: "A shovel is the number one tool in most gardeners’ sheds, and
+  it’s probably the most versatile. Shovels are common tools that are used
+  extensively in agriculture, construction and gardening. It is used for
+  collecting a lifting."
+)
+
+Equipment.create(
+  category: "garden",
+  name: "Weedeater (Petrol)",
+  location: location.sample,
+  quantity: rand(1..3),
+  price: Faker::Number.between(from: 10.00, to: 1_000_000),
+  rented: 0,
+  user_id: rand(1..5),
+  item_url: "xajyv4pkv8lfytec9h2u", # Replace with actual image URL
+  description: "Trimming lawn edges, Ideal for medium to larger gardens."
 )
 
 puts "#{Equipment.all.count} equipment items created"
