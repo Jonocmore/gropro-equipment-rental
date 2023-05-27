@@ -1,0 +1,13 @@
+.header {
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-icon {
+  margin: auto;
+  display: block;
+  max-width: 360px;
+}

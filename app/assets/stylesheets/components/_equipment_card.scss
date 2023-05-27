@@ -1,0 +1,24 @@
+.equipment-card {
+  box-sizing: border-box;
+  position: relative;
+  background: rgba(144, 169, 85, 0.5);
+  border: 1px solid #ECF39E;
+  border-radius: 10px;
+  width: 151px;
+  height: 170px;
+  font-family: 'outfit';
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 5px; /* adjust as needed */
+}
+
+.equipment-card p {
+  font-size: 10px; /* Adjust this to a suitable value */
+  text-align: center;
+}
