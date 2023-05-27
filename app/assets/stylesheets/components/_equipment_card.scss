@@ -4,7 +4,7 @@
   background: rgba(144, 169, 85, 0.5);
   border: 1px solid #ECF39E;
   border-radius: 10px;
-  width: 151px;
+  width: 170px;
   height: 170px;
   font-family: 'outfit';
   font-weight: 500;
@@ -21,4 +21,47 @@
 .equipment-card p {
   font-size: 10px; /* Adjust this to a suitable value */
   text-align: center;
+}
+
+.equipment-cards {
+  height: 500px; /* Adjust this height as needed */
+  overflow-y: auto; /* Makes the div scrollable */
+}
+
+.equipment-card {
+  perspective: 1000px;
+}
+
+.equipment-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.equipment-card .equipment-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.equipment-card-front,
+.equipment-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.equipment-card-front {
+  background: rgba(144, 169, 85, 0.5);
+}
+
+.equipment-card-back {
+  background: #f8f9fa;
+  color: black;
+  padding: 10px;
+  box-sizing: border-box;
+  transform: rotateY(180deg);
 }
