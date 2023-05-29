@@ -1,56 +1,47 @@
 <div class="container">
-<%# Slider Left %>
+  <%# Slider Left %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-75 tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
       <h6 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h6>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    </div>
+  </div>
+  <%# slider left end %>
+  <%# Slider right %>
+  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header text-center ">
+      <h5 id="offcanvasRightLabel"></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="col-12 col-sm-6">
+        <div class="bg-white rounded p-3">
+        <h3>Add Listing</h3>
+          <%= simple_form_for @equipment_new do |f| %>
+            <%= f.input :name %>
+            <%= f.input :category %>
+            <%= f.input :price %>
+            <%= f.input :location %>
+            <%= f.input :item_url, as: :file %>
+            <%= f.submit class:"btn btn-secondary" %>
+          <% end %>
+        </div>
       </div>
     </div>
-
-  <%# slider left end %>
-
-  <%# Slider right %>
-
-  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <div class="offcanvas-header text-center ">
-    <h5 id="offcanvasRightLabel">Add Listing</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
-    ...
-  </div>
-</div>
-
   <%# slider right end %>
-
-
   <div class="row">
     <div class="header col-12">
       <%= image_tag 'green_header.png', class: 'header-icon' %>
       <%= link_to '#offcanvasLeft', 'data-bs-toggle' => 'offcanvas' do %><%= image_tag 'menu_icon.svg',class: 'menu-icon'%> <% end %>
       <%= link_to '#offcanvasRight', 'data-bs-toggle' => 'offcanvas' do %><%= image_tag 'add_icon.svg', class: 'add-icon' %> <% end %>
       <%= image_tag 'small_logo.svg', class: 'logo' %>
-
-
     </div>
-
-
-
-
-
-
   </div>
-
-
-
-
-
   <div class="row mt-3">
-
-
     <div class="search col-12">
       <%= form_tag('/search', method: "get") do %>
         <%= text_field_tag(:q, nil, class: 'search-bar', placeholder: '  Search', width: 400) %>
