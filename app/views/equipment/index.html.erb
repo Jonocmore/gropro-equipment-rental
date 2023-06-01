@@ -19,13 +19,14 @@
     <div class="offcanvas-body">
       <div class="col-12 col-sm-6">
         <div class="bg-white rounded p-3">
-        <h3>Add Listing</h3>
-          <%= simple_form_for @equipment_new do |f| %>
+          <h3>Add Listing</h3>
+          <%= simple_form_for(@equipment_new, data:{turbo: :false}) do |f| %>
             <%= f.input :name %>
             <%= f.input :category %>
+            <%= f.input :description %>
             <%= f.input :price %>
             <%= f.input :location %>
-            <%= f.input :item_url, as: :file %>
+            <%= f.input :photo, as: :file %>
             <%= f.submit class:"btn btn-secondary" %>
           <% end %>
         </div>
@@ -58,7 +59,9 @@
             <div class="equipment-card col-12 col-md-6 d-flex justify-content-center">
               <div class="equipment-card-inner">
                 <div class="equipment-card-front d-flex flex-column justify-content-center align-items-center">
-                  <%= cl_image_tag("#{item.item_url}", class: "card-image", width: 144, height: 96) %>
+
+                    <%= cl_image_tag("#{item.photo.key}", class: "card-image key", width: 144, height: 96) %>
+
                   <p><%= item.name %></p>
                   <p><%= number_to_currency(item.price) %> - <%= item.location %></p>
                 </div>
@@ -82,3 +85,4 @@
     </div>
   </div>
 </div>
+›
