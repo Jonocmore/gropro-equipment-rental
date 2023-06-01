@@ -11,10 +11,10 @@ class EquipmentController < ApplicationController
   end
 
   def create
-    @equipment_new = Equipment.new(equipment_params)
-    @equipment_new.user_id = 1
-    if @equipment_new.save
-      redirect_to equipment_index_path(@equipment)
+    @equipment = Equipment.new(equipment_params)
+    @equipment.user_id = 1
+    if @equipment.save
+      redirect_to root_path(@equipment)
     else
       render :index, status: :unprocessable_entity
     end

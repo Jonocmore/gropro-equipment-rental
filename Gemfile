@@ -53,10 +53,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "cloudinary"
 
-group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
-end
+
 
 gem "dotenv-rails", groups: [:development, :test]
 
