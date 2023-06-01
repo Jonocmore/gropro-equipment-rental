@@ -28,9 +28,9 @@ class EquipmentController < ApplicationController
   def edit
   end
 
-
   def search
     @results = Equipment.search_by_name(params[:query])
+  end
 
   private
 
