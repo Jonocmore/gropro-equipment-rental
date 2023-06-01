@@ -2,15 +2,16 @@
   background-color: #4CAF50; /* Green background */
   border: none; /* Remove border */
   color: white; /* White text */
-  padding: 15px 32px; /* Some padding */
+  padding: 5px 15px; /* Some padding */
   text-align: center; /* Centered text */
   text-decoration: none; /* Remove underline */
   display: inline-block;
-  font-size: 16px;
-  margin: 10px 2px; /* Some margin */
+  font-size: 24px;
+  margin: 2px 2px; /* Some margin */
   cursor: pointer; /* Add a hand cursor on hover */
+  border-radius: 10px;
 }
 
 .rent-button:hover {
-  background-color: #45a049; /* Darker green */
+  background-color: #2c642f; /* Darker green */
 }

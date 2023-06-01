@@ -13,6 +13,13 @@ class EquipmentController < ApplicationController
   end
 
   def create
+    @equipment = Equipment.new(equipment_params)
+    @equipment.user_id = 1
+    if @equipment.save
+      redirect_to root_path(@equipment)
+    else
+      render :index, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -21,7 +28,14 @@ class EquipmentController < ApplicationController
   def edit
   end
 
+
   def search
     @results = Equipment.search_by_name(params[:query])
+
+  private
+
+  def equipment_params
+    params.require(:equipment).permit(:name, :category, :description, :price, :location, :photo)
+
   end
 end
