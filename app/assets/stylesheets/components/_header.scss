@@ -1,19 +1,19 @@
 .header {
-  height: 15vh;
+  height: 5vh;
   width: 100%;
-  position: relative;
+  max-width: 420px;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 0;
   padding-top: 0;
+  z-index: 1;
 }
 
 
 .header-icon {
-  width: 100%;
+  width: 105%;
   height: auto;
-  box-sizing: border-box;
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
 }
