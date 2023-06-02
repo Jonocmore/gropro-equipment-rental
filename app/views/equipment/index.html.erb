@@ -1,25 +1,30 @@
 <div class="container">
   <%# Slider Display Listings %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h6 class="offcanvas-title" id="offcanvasExampleLabel">My Listings</h6>
+    <div class="offcanvas-header text-center">
+      <h4 class="offcanvas-title" id="offcanvasExampleLabel">My Listings</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      Listing 1
+      <% @equipment.where(user_id: 2).each do |element| %>
+        <p><%= element.name %></p>
+        <hr>
+         <% end %>
     </div>
   </div>
   <%# slider Display Listings end %>
   <%# Slider Add Listing %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header text-center ">
-      <h5 id="offcanvasRightLabel"></h5>
+    <div class="offcanvas-header text-center p-3 ">
+      <h4 id="offcanvas-title ">Add Listing</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-      <div class="col-12 col-sm-6">
+    <div class="col-12 col-sm-6">
         <div class="rounded p-3">
-          <h3>Add Listing</h3>
+    <div class="offcanvas-body p-0">
+
+
+
           <%= simple_form_for(@equipment_new, data:{turbo: :false}) do |f| %>
             <%= f.input :name %>
             <%= f.input :category %>
@@ -27,7 +32,7 @@
             <%= f.input :price %>
             <%= f.input :location %>
             <%= f.input :photo, as: :file %>
-            <%= f.submit class:"btn btn-secondary" %>
+            <%= f.submit class:"btn btn-secondary mt-2" %>
           <% end %>
         </div>
       </div>
