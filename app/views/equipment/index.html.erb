@@ -1,24 +1,24 @@
 <div class="container">
-  <%# Slider Left %>
-  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
+  <%# Slider Display Listings %>
+  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-      <h6 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h6>
+      <h6 class="offcanvas-title" id="offcanvasExampleLabel">My Listings</h6>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+      Listing 1
     </div>
   </div>
-  <%# slider left end %>
-  <%# Slider right %>
-  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <%# slider Display Listings end %>
+  <%# Slider Add Listing %>
+  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header text-center ">
       <h5 id="offcanvasRightLabel"></h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
       <div class="col-12 col-sm-6">
-        <div class="bg-white rounded p-3">
+        <div class="rounded p-3">
           <h3>Add Listing</h3>
           <%= simple_form_for(@equipment_new, data:{turbo: :false}) do |f| %>
             <%= f.input :name %>
@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-  <%# slider right end %>
+  <%# slider add Listing end %>
   <div class="row">
     <div class="header col-12">
       <%= image_tag 'green_header.png', class: 'header-icon' %>
