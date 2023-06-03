@@ -1,1 +1,26 @@
-<h1>Dashboard Rentals</h1>
+<div class="container">
+  <h1>Dashboard</h1>
+
+  <% if @rentals.any? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rentals.each do |rental| %>
+          <tr>
+            <td><%= rental.id %></td>
+            <td><%= rental.rental_date %></td>
+            <td><%= rental.return_date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No rentals found.</p>
+  <% end %>
+</div>
