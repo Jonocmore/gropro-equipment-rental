@@ -2,16 +2,7 @@
 
 .equipment-image {
   position: relative;
-  animation: equipment-image 5s infinite alternate;
-  max-width: 35%;
+  align-items: center;
+  justify-content: center;
   height: auto;
-}
-
-@keyframes equipment-image {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: 50%;
-  }
 }

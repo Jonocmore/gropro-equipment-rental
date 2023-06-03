@@ -1,0 +1,12 @@
+.small-container {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  top: 70px;
+  background-color: #F3EFE0;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  max-height: calc(100vh - (15vh + 25px));
+  overflow-y: auto;
+}
