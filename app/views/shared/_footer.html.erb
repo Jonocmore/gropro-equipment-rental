@@ -1,6 +1,6 @@
 <div class="nav-bar col-12 d-flex justify-content-around navbar-bottom-color">
-  <%= image_tag 'home_pot.svg', class: 'nav-icon' %>
+  <%= link_to root_path do %><%= image_tag "home_pot.svg", class: 'nav-icon' %> <% end %>
   <%= image_tag 'market_pot.svg', class: 'nav-icon' %>
   <%= image_tag 'plants_pot.svg', class: 'nav-icon' %>
-  <%= image_tag 'profile_pot.svg', class: 'nav-icon' %>
+  <%= link_to new_user_session_path do %><%= image_tag "profile_pot.svg", class: 'nav-icon' %> <% end %>
 </div>
