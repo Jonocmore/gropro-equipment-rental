@@ -9,7 +9,7 @@
       <% @equipment.where(user_id: 2).each do |element| %>
         <p><%= element.name %></p>
         <hr>
-         <% end %>
+      <% end %>
     </div>
   </div>
   <%# slider Display Listings end %>
@@ -20,11 +20,8 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="col-12 col-sm-6">
-        <div class="rounded p-3">
-    <div class="offcanvas-body p-0">
-
-
-
+      <div class="rounded p-3">
+        <div class="offcanvas-body p-0">
           <%= simple_form_for(@equipment_new, data:{turbo: :false}) do |f| %>
             <%= f.input :name %>
             <%= f.input :category %>
@@ -32,7 +29,7 @@
             <%= f.input :price %>
             <%= f.input :location %>
             <%= f.input :photo, as: :file %>
-            <%= f.submit class:"btn btn-secondary mt-2" %>
+            <%= f.button :submit, 'Add Listing', class:"btn btn-secondary mt-2" %>
           <% end %>
         </div>
       </div>
@@ -56,9 +53,9 @@
         <%# <%= select_tag(:type, options_for_select(['type_1', 'type_2', 'type_3']), class: 'type-bar') %>
       <% end %>
       <% if @results %>
-      <% @results.each do |equipment| %>
-        <p><%= equipment.name %></p>
-        <!-- Add other equipment attributes you want to display -->
+        <% @results.each do |equipment| %>
+          <p><%= equipment.name %></p>
+          <!-- Add other equipment attributes you want to display -->
         <% end %>
       <% end %>
     </div>
@@ -71,13 +68,13 @@
             <div class="equipment-card col-12 col-md-6 d-flex justify-content-center">
               <div class="equipment-card-inner">
                 <div class="equipment-card-front d-flex flex-column justify-content-center align-items-center">
-                    <%= cl_image_tag("#{item.photo.key}", class: "card-image key", width: 144, height: 96) %>
+                  <%= cl_image_tag("#{item.photo.key}", class: "card-image key", width: 144, height: 96) %>
                   <p><%= item.name %></p>
                   <p><%= number_to_currency(item.price) %> - <%= item.location %></p>
                 </div>
                 <div class="equipment-card-back d-flex flex-column justify-content-center align-items-center">
                   <p><%= item.description %></p>
-                  <button class="rent-button">Rent</button>
+                  <%= link_to 'Rent', equipment_path(item) %>
                 </div>
               </div>
             </div>

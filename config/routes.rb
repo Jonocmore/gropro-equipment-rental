@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "equipment#index"
   resources :equipment do
-    resources :rentals, only: [:new, :create]
+    resources :rentals, only: [:create]
   end
   resources :rentals, only: [:edit, :update] do
     member do

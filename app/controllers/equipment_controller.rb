@@ -23,6 +23,8 @@ class EquipmentController < ApplicationController
   end
 
   def show
+    @equipment = Equipment.find(params[:id])
+    @rental = Rental.new
   end
 
   def edit
