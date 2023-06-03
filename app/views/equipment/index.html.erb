@@ -43,29 +43,23 @@
     </div>
   </div>
   <%# slider add Listing end %>
-  <div class="row">
-    <div class="header col-12">
-      <%= image_tag "green_header.png", class: "header-icon" %>
+  <div class="icons-wrapper">
+    <div class="col-12">
       <%= link_to "#offcanvasLeft", "data-bs-toggle" => "offcanvas" do %><%= image_tag "menu_icon.svg", class: "menu-icon" %> <% end %>
       <%= link_to "#offcanvasRight", "data-bs-toggle" => "offcanvas" do %><%= image_tag "add_icon.svg", class: "add-icon" %> <% end %>
-      <%= image_tag "small_logo.svg", class: "logo" %>
     </div>
   </div>
-  <div class="row mt-3">
-    <div class="search col-12">
-      <%= form_tag(root_path, method: :get, data:{turbo: :false}) do %>
-        <%= text_field_tag :search, params[:search], placeholder: 'Search Equipment', width: 400 %>
-        <%= submit_tag 'Search' %>
-        <%# <%= select_tag(:filter, options_for_select(['location_1', 'location_2', 'location_3']), class: 'location-bar') %>
-        <%# <%= select_tag(:type, options_for_select(['type_1', 'type_2', 'type_3']), class: 'type-bar') %>
+  <div class="search-bar">
+    <%= form_tag(root_path, method: :get, data:{turbo: :false}) do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search Equipment', width: 400 %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+    <% if @results %>
+      <% @results.each do |equipment| %>
+        <p><%= equipment.name %></p>
+        <!-- Add other equipment attributes you want to display -->
       <% end %>
-      <% if @results %>
-        <% @results.each do |equipment| %>
-          <p><%= equipment.name %></p>
-          <!-- Add other equipment attributes you want to display -->
-        <% end %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
   <div class="row mt-5 justify-content-center">
     <div class="equipment-cards col-12">
@@ -88,14 +82,6 @@
           <% end %>
         </div>
       <% end %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="nav-bar col-12 d-flex justify-content-around navbar-bottom-color">
-      <%= image_tag 'home_pot.svg' %>
-      <%= image_tag 'market_pot.svg' %>
-      <%= image_tag 'plants_pot.svg' %>
-      <%= image_tag 'profile_pot.svg' %>
     </div>
   </div>
 </div>

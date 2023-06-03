@@ -1,9 +1,11 @@
 body {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start; /* aligns the content to the top */
+  align-items: center; /* centers the content horizontally */
   width: 100%;
-  height: 100vh;
+  max-width: 100vw; /* ensures that the body never exceeds the viewport width */
+  min-height: 100vh; /* ensures that the body always takes up at least the full height of the viewport */
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
