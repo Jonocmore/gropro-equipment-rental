@@ -1,1 +1,58 @@
-<h1>Equipment Details</h1>
+<div class="container">
+  <% # Slider Left %>
+  <!-- Offcanvas left code here -->
+  <% # slider left end %>
+
+  <% # Slider right %>
+  <!-- Offcanvas right code here -->
+  <% # slider right end %>
+
+  <div class="row">
+    <div class="header col-12">
+      <%= image_tag "green_header.png", class: "header-icon" %>
+      <%= link_to "#offcanvasLeft", "data-bs-toggle" => "offcanvas" do %><%= image_tag "menu_icon.svg", class: "menu-icon" %> <% end %>
+      <%= link_to "#offcanvasRight", "data-bs-toggle" => "offcanvas" do %><%= image_tag "add_icon.svg", class: "add-icon" %> <% end %>
+      <%= image_tag "small_logo.svg", class: "logo" %>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="search col-12">
+      <%= form_tag("/search", method: "get") do %>
+        <%= text_field_tag(:q, nil, class: "search-bar", placeholder: "  Search", width: 400) %>
+        <!-- Location and Type dropdowns can be added here -->
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-5 justify-content-center">
+    <div class="equipment-cards col-12">
+      <% @equipment.each do |item| %>
+        <div class="row justify-content-center">
+          <div class="equipment-card col-12 col-md-6 d-flex justify-content-center">
+            <div class="equipment-card-inner">
+              <div class="equipment-card-front d-flex flex-column justify-content-center align-items-center">
+                <%= cl_image_tag("#{item.item_url}", class: "card-image", width: 144, height: 96) %>
+                <p><%= item.name %></p>
+                <p><%= number_to_currency(item.price) %> - <%= item.location %></p>
+              </div>
+              <div class="equipment-card-back d-flex flex-column justify-content-center align-items-center">
+                <p><%= item.description %></p>
+                <%= link_to "Rent", new_equipment_rental_path(item), class: "rent-button" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="nav-bar col-12 d-flex justify-content-around">
+      <%= image_tag "home_pot.svg" %>
+      <%= image_tag "market_pot.svg" %>
+      <%= image_tag "plants_pot.svg" %>
+      <%= image_tag "profile_pot.svg" %>
+    </div>
+  </div>
+</div>

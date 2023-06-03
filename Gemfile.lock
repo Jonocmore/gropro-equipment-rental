@@ -7,6 +7,11 @@ GIT
       activemodel (>= 5.2)
 
 GEM
+  remote: https://rails-assets.org/
+  specs:
+    rails-assets-flatpickr (4.6.13)
+
+GEM
   remote: https://rubygems.org/
   specs:
     actioncable (7.0.4.3)
@@ -291,6 +296,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
+  rails-assets-flatpickr!
   sassc-rails
   selenium-webdriver
   simple_form!
