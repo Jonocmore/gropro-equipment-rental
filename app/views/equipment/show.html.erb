@@ -1,4 +1,4 @@
-<div class="container">
+<div class="small-container">
   <h3>Rental Details</h3>
   <div class="row">
     <div class="col-md-6">
@@ -28,7 +28,8 @@
   </div>
 
   <div class="equipment-image mt-4">
-    <%= image_tag @equipment.photo, class: "img-fluid", alt: @equipment.name %>
+    <%= image_tag @equipment.photo, alt: @equipment.name %>
+    <%= link_to "Back to all equipment", root_path, data: { turbo: :false }, class: "btn btn-secondary mt-3" %>
   </div>
 
   <%# <h4>Rented Equipment:</h4>
@@ -40,6 +41,4 @@
     <%# </div>
     <hr>
   <% end %>
-
-  <%= link_to "Back to all equipment", root_path, data: { turbo: :false }, class: "btn btn-secondary mt-3" %>
 </div>
