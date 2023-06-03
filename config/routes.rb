@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :equipment do
     resources :rentals, only: [:create]
   end
-  resources :rentals, only: [:edit, :update] do
+  resources :rentals, only: %i[edit update] do
     member do
       get :dashboard
     end
