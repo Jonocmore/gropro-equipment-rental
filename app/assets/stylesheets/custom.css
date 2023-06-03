@@ -1,13 +1,4 @@
-.container {
-  max-width: 50%;
-  padding: 20px;
-}
 
-@media (max-width: 276px) {
-  .container {
-    padding: 10px;
-  }
-}
 
 .lawnmower-animation {
   position: relative;

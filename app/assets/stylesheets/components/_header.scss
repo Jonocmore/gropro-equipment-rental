@@ -3,6 +3,7 @@
   width: 100%;
   max-width: 420px;
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +14,7 @@
 
 
 .header-icon {
-  width: 105%;
+  width: 100%;
   height: auto;
   object-fit: cover;
 }

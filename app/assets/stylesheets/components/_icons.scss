@@ -1,0 +1,20 @@
+.icons-wrapper {
+  position: relative;
+  max-width: 420px;
+  margin: auto;
+}
+
+.menu-icon, .add-icon {
+  position: absolute;
+  width: 10%;
+  max-width: 30px;
+  z-index: 2;
+}
+
+.menu-icon {
+  left: 2%;
+}
+
+.add-icon {
+  right: 2%;
+}
