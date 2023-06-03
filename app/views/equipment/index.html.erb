@@ -7,13 +7,13 @@
     </div>
     <%# display listings %>
     <div class="offcanvas-body">
-      <% @equipment.where(user_id: 2).each do |element| %>
+      <% @user_equipment.each do |element| %>
         <p><%= element.name %></p>
         <hr style='color: white;'>
       <% end %>
       <%# display rentals %>
       <h4 class="my-4">My Rentals</h4>
-      <% @rental.where(user_id: 1).each do |element| %>
+      <% @user_rental.each do |element| %>
         <p><%= element.equipment.name %></p>
         <hr style='color: white;'>
       <% end %>
