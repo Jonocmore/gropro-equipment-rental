@@ -23,9 +23,14 @@
   text-align: center;
 }
 
+.equipment-card h1 {
+  font-size: 18px;
+  text-align: center;
+}
+
 .equipment-cards {
-  margin-top: 50px;
-  max-height: calc(100vh - (15vh + 10px + 40px + 60px));
+  margin-top: 40px;
+  max-height: calc(100vh - (15vh + 3px + 35px + 60px));
   overflow-y: auto;
   z-index: 2;
 }
