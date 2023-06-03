@@ -1,17 +1,17 @@
 
 
-.lawnmower-animation {
+.equipment-image {
   position: relative;
-  animation: mowerAnimation 5s infinite alternate;
-  max-width: 100%;
+  animation: equipment-image 5s infinite alternate;
+  max-width: 35%;
   height: auto;
 }
 
-@keyframes mowerAnimation {
+@keyframes equipment-image {
   0% {
     left: 0;
   }
   100% {
-    left: 40%;
+    left: 50%;
   }
 }
