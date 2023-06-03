@@ -8,6 +8,9 @@ class EquipmentController < ApplicationController
     end
     @equipment_new = Equipment.new
     @rental = Rental.all
+    @user = User.find(current_user.id)
+    @user_equipment = @equipment.where(user_id: @user)
+    @user_rental = @rental.where(user_id: @user)
   end
 
   def new
@@ -15,7 +18,7 @@ class EquipmentController < ApplicationController
 
   def create
     @equipment = Equipment.new(equipment_params)
-    @equipment.user_id = 1
+    @equipment.user = current_user
     if @equipment.save
       redirect_to root_path(@equipment)
     else

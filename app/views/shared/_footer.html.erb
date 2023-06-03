@@ -1,6 +1,6 @@
 <div class="nav-bar col-12 d-flex justify-content-around navbar-bottom-color">
   <%= link_to root_path, data: { turbo: :false } do %><%= image_tag "home_pot.svg", class: 'nav-icon' %> <% end %>
   <%= image_tag 'market_pot.svg', class: 'nav-icon' %>
-  <%= image_tag 'plants_pot.svg', class: 'nav-icon' %>
+  <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %> <%= image_tag 'plants_pot.svg', class: 'nav-icon' %> <% end %>
   <%= link_to new_user_session_path do %><%= image_tag "profile_pot.svg", class: 'nav-icon' %> <% end %>
 </div>
