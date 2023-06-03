@@ -15,20 +15,18 @@ class EquipmentController < ApplicationController
 
   def create
     @equipment = Equipment.new(equipment_params)
-    @equipment.user = current_user
+    @equipment.user_id = 1
     if @equipment.save
-      redirect_to equipment_path(@equipment)
+      redirect_to root_path(@equipment)
     else
-      render :new
+      render :index, status: :unprocessable_entity
     end
   end
 
   def show
     @equipment = Equipment.find(params[:id])
-    @rentals = @equipment.rentals
+    # @rentals = @equipment.rentals
     @rental = Rental.new
-
-    render "rental" # Render the rental page directly within the show action
   end
 
   def edit

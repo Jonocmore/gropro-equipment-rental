@@ -1,11 +1,23 @@
 <div class="container">
+  <h1>Rental Details</h1>
+  <div class="row">
+    <div class="col">
+      <h4>Equipment Name: <%= @equipment.name %></h4>
+      <p>Category: <%= @equipment.category %></p>
+      <p>Location: <%= @equipment.location %></p>
+      <p>Price: <%= number_to_currency(@equipment.price) %></p>
+    </div>
+    <div class="col">
+      <%= simple_form_for([@equipment, @rental], data: { turbo: :false }) do |f| %>
+        <%= f.input :rented_date, as: :string, input_html: { class: "flatpickr-input" } %>
+        <%= f.input :return_date, as: :string, input_html: { class: "flatpickr-input" } %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <%# <div class="lawnmower-animation">
+    <%= image_tag "lawnmower.png", id: "lawnmower", alt: "Lawnmower"
+  </div> %>
 
-<%= simple_form_for([@equipment, @rental], data:{turbo: :false}) do |f| %>
-  <%= f.input :rented_date %>
-  <%= f.input :return_date %>
-
-  <%= f.button :submit, class:'btn btn-secondary' %>
-<% end %>
-
-<%= link_to "Back to all equipment", root_path, data:{turbo: :false}, class: 'btn btn-secondary mt-3' %>
+<%= link_to "Back to all equipment", root_path, data: { turbo: :false }, class: "btn btn-secondary mt-3" %>
 </div>
