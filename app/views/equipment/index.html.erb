@@ -9,13 +9,13 @@
     <div class="offcanvas-body">
       <% @equipment.where(user_id: 2).each do |element| %>
         <p><%= element.name %></p>
-        <hr>
+        <hr style='color: white;'>
       <% end %>
       <%# display rentals %>
       <h4 class="my-4">My Rentals</h4>
       <% @rental.where(user_id: 1).each do |element| %>
         <p><%= element.equipment.name %></p>
-        <hr>
+        <hr style='color: white;'>
       <% end %>
     </div>
   </div>
@@ -23,7 +23,7 @@
   <%# Slider Add Listing %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header text-center p-3 ">
-      <h4 id="offcanvas-title ">Add Listing</h4>
+      <h4 id="offcanvas-title">Add Listing</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="col-12 col-sm-6">
