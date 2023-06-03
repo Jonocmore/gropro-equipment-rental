@@ -1,4 +1,5 @@
 class RentalsController < ApplicationController
+
   def new
     @rental = Rental.new
   end
@@ -22,5 +23,10 @@ class RentalsController < ApplicationController
 
   def rental_params
     params.require(:rental).permit(:rented_date, :return_date)
+  end
+
+  private
+
+  def rental_params
   end
 end

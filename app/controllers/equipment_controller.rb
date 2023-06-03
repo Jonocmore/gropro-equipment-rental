@@ -7,6 +7,7 @@ class EquipmentController < ApplicationController
       @equipment = Equipment.search_by_name(params[:search])
     end
     @equipment_new = Equipment.new
+    @rental = Rental.all
   end
 
   def new

@@ -1,25 +1,34 @@
 <div class="container">
-  <% # Slider Left %>
-  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h6 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h6>
+  <%# Slider Display Listings %>
+  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header text-center">
+      <h4 class="offcanvas-title" id="offcanvasExampleLabel">My Listings</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+    <%# display listings %>
     <div class="offcanvas-body">
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+      <% @equipment.where(user_id: 2).each do |element| %>
+        <p><%= element.name %></p>
+        <hr style='color: white;'>
+      <% end %>
+      <%# display rentals %>
+      <h4 class="my-4">My Rentals</h4>
+      <% @rental.where(user_id: 1).each do |element| %>
+        <p><%= element.equipment.name %></p>
+        <hr style='color: white;'>
+      <% end %>
     </div>
   </div>
-  <% # slider left end %>
-  <% # Slider right %>
-  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header text-center ">
-      <h5 id="offcanvasRightLabel"></h5>
+  <%# slider Display Listings end %>
+  <%# Slider Add Listing %>
+  <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header text-center p-3 ">
+      <h4 id="offcanvas-title">Add Listing</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-      <div class="col-12 col-sm-6">
-        <div class="bg-white rounded p-3">
-          <h3>Add Listing</h3>
+    <div class="col-12 col-sm-6">
+      <div class="rounded p-3">
+        <div class="offcanvas-body p-0">
           <%= simple_form_for(@equipment_new, data:{turbo: :false}) do |f| %>
             <%= f.input :name %>
             <%= f.input :category %>
@@ -27,13 +36,13 @@
             <%= f.input :price %>
             <%= f.input :location %>
             <%= f.input :photo, as: :file %>
-            <%= f.submit class:"btn btn-secondary" %>
+            <%= f.button :submit, 'Add Listing', class:"btn btn-secondary mt-2" %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-  <% # slider right end %>
+  <%# slider add Listing end %>
   <div class="row">
     <div class="header col-12">
       <%= image_tag "green_header.png", class: "header-icon" %>
@@ -44,16 +53,16 @@
   </div>
   <div class="row mt-3">
     <div class="search col-12">
-      <%= form_tag(root_path, method: :get) do %>
+      <%= form_tag(root_path, method: :get, data:{turbo: :false}) do %>
         <%= text_field_tag :search, params[:search], placeholder: 'Search Equipment', width: 400 %>
         <%= submit_tag 'Search' %>
         <%# <%= select_tag(:filter, options_for_select(['location_1', 'location_2', 'location_3']), class: 'location-bar') %>
         <%# <%= select_tag(:type, options_for_select(['type_1', 'type_2', 'type_3']), class: 'type-bar') %>
       <% end %>
       <% if @results %>
-      <% @results.each do |equipment| %>
-        <p><%= equipment.name %></p>
-        <!-- Add other equipment attributes you want to display -->
+        <% @results.each do |equipment| %>
+          <p><%= equipment.name %></p>
+          <!-- Add other equipment attributes you want to display -->
         <% end %>
       <% end %>
     </div>
@@ -66,13 +75,13 @@
             <div class="equipment-card col-12 col-md-6 d-flex justify-content-center">
               <div class="equipment-card-inner">
                 <div class="equipment-card-front d-flex flex-column justify-content-center align-items-center">
-                    <%= cl_image_tag("#{item.photo.key}", class: "card-image key", width: 144, height: 96) %>
+                  <%= cl_image_tag("#{item.photo.key}", class: "card-image key", width: 144, height: 96) %>
                   <p><%= item.name %></p>
                   <p><%= number_to_currency(item.price) %> - <%= item.location %></p>
                 </div>
                 <div class="equipment-card-back d-flex flex-column justify-content-center align-items-center">
                   <p><%= item.description %></p>
-                  <button class="rent-button">Rent</button>
+                  <%= link_to 'Rent', equipment_path(item) %>
                 </div>
               </div>
             </div>
@@ -82,12 +91,11 @@
     </div>
   </div>
   <div class="row mt-3">
-    <div class="nav-bar col-12 d-flex justify-content-around">
-      <%= image_tag "home_pot.svg" %>
-      <%= image_tag "market_pot.svg" %>
-      <%= image_tag "plants_pot.svg" %>
-      <%= image_tag "profile_pot.svg" %>
+    <div class="nav-bar col-12 d-flex justify-content-around navbar-bottom-color">
+      <%= image_tag 'home_pot.svg' %>
+      <%= image_tag 'market_pot.svg' %>
+      <%= image_tag 'plants_pot.svg' %>
+      <%= image_tag 'profile_pot.svg' %>
     </div>
   </div>
 </div>
-›
