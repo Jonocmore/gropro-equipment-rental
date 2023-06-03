@@ -8,7 +8,7 @@ class EquipmentController < ApplicationController
     end
     @equipment_new = Equipment.new
     @rental = Rental.all
-    @user = User.find(current_user.id)
+
     @user_equipment = @equipment.where(user_id: @user)
     @user_rental = @rental.where(user_id: @user)
   end

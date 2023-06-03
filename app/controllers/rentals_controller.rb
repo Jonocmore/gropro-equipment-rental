@@ -3,8 +3,7 @@ class RentalsController < ApplicationController
     @equipment = Equipment.find(params[:equipment_id])
     @rental = Rental.new(rental_params)
     @rental.equipment = @equipment
-    @user = User.find(current_user.id)
-    @rental.user = @user
+    @rental.user_id = current_user
     if @rental.save
       redirect_to equipment_path(@equipment), notice: "Rental was successfully created."
     else
