@@ -1,14 +1,15 @@
 .search {
-  position: absolute;
-  width: 320px;
-  height: 78px;
-  left: 50px;
-  top: 94px;
+  position: relative;
+  width: 80%;
+  height: 8vh;
+  left: 10%;
+  top: 10vh;
+  z-index: 1;
 }
 
 .search-bar {
-  margin: 10px;
-  height: 35px;
+  margin: 2%;
+  height: 60%;
   position: absolute;
   left: 0%;
   right: 0%;

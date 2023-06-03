@@ -19,14 +19,15 @@
     <div class="offcanvas-body">
       <div class="col-12 col-sm-6">
         <div class="bg-white rounded p-3">
-        <h3>Add Listing</h3>
-          <%= simple_form_for @equipment_new do |f| %>
+          <h3>Add Listing</h3>
+          <%= simple_form_for(@equipment_new, data:{turbo: :false}) do |f| %>
             <%= f.input :name %>
             <%= f.input :category %>
+            <%= f.input :description %>
             <%= f.input :price %>
             <%= f.input :location %>
-            <%= f.input :item_url, as: :file %>
-            <%= f.submit class: "btn btn-secondary" %>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit class:"btn btn-secondary" %>
           <% end %>
         </div>
       </div>
@@ -43,10 +44,17 @@
   </div>
   <div class="row mt-3">
     <div class="search col-12">
-      <%= form_tag("/search", method: "get") do %>
-        <%= text_field_tag(:q, nil, class: "search-bar", placeholder: "  Search", width: 400) %>
-        <% # <%= select_tag(:filter, options_for_select(['location_1', 'location_2', 'location_3']), class: 'location-bar') %>
-        <% # <%= select_tag(:type, options_for_select(['type_1', 'type_2', 'type_3']), class: 'type-bar') %>
+      <%= form_tag(root_path, method: :get) do %>
+        <%= text_field_tag :search, params[:search], placeholder: 'Search Equipment', width: 400 %>
+        <%= submit_tag 'Search' %>
+        <%# <%= select_tag(:filter, options_for_select(['location_1', 'location_2', 'location_3']), class: 'location-bar') %>
+        <%# <%= select_tag(:type, options_for_select(['type_1', 'type_2', 'type_3']), class: 'type-bar') %>
+      <% end %>
+      <% if @results %>
+      <% @results.each do |equipment| %>
+        <p><%= equipment.name %></p>
+        <!-- Add other equipment attributes you want to display -->
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -58,7 +66,7 @@
             <div class="equipment-card col-12 col-md-6 d-flex justify-content-center">
               <div class="equipment-card-inner">
                 <div class="equipment-card-front d-flex flex-column justify-content-center align-items-center">
-                  <%= cl_image_tag("#{item.item_url}", class: "card-image", width: 144, height: 96) %>
+                    <%= cl_image_tag("#{item.photo.key}", class: "card-image key", width: 144, height: 96) %>
                   <p><%= item.name %></p>
                   <p><%= number_to_currency(item.price) %> - <%= item.location %></p>
                 </div>
@@ -82,3 +90,4 @@
     </div>
   </div>
 </div>
+›

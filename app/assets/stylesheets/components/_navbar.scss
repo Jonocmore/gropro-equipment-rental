@@ -12,9 +12,10 @@
 }
 
 .nav-bar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 420px;
   display: flex;
   justify-content: space-around;
 }
