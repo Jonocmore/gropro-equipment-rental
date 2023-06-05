@@ -14,31 +14,38 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <%= simple_form_for([@equipment, @rental], data: { turbo: :false }) do |f| %>
-            <%= f.input :rented_date, as: :string, input_html: { class: "form-control flatpickr-input" } %>
-            <%= f.input :return_date, as: :string, input_html: { class: "form-control flatpickr-input" } %>
-            <%= f.submit class: "btn btn-primary" %>
-          <% end %>
-        </div>
+      <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <%= simple_form_for([@equipment, @rental], data: { turbo: :false }, input_html: { class: 'animated' }) do |f| %>
+         <%= f.input :rented_date, as: :string, input_html: { class: 'form-control datepicker', placeholder: 'Pick a rent date' } %>
+  <%= f.input :return_date, as: :string, input_html: { class: 'form-control datepicker', placeholder: 'Pick a return date' } %>
+  <%= f.button :submit, 'Rent', class: 'btn btn-primary' %>
+<% end %>
       </div>
     </div>
   </div>
-
   <div class="equipment-image mt-4">
     <%= image_tag @equipment.photo, alt: @equipment.name %>
     <%= link_to "Back to all equipment", root_path, data: { turbo: :false }, class: "btn btn-secondary mt-3" %>
   </div>
 
-  <%# <h4>Rented Equipment:</h4>
-  <% @equipment.rentals.each do |rental| %>
-    <%# <div>
-      <%# <h5>Rental ID: <%= rental.id %></h5>
-      <%# <p>Rented Date: <%= rental.rented_date %></p>
-      <%# <p>Return Date: <%= rental.return_date %></p>
-    <%# </div>
-    <hr>
+  <%# <section class="rented-equipment">
+  <h4>Rented Equipment:</h4>
+  <% if @equipment.rentals.any? %>
+    <%# <% @equipment.rentals.each do |rental| %>
+      <%# <div class="rental-details">
+        <p>Rented Date: <%= rental.rented_date %></p>
+        <%# <p>Return Date: <%= rental.return_date %></p>
+        <%# <p>Duration: <%= rental.duration %></p>
+        <%# <p>Total Cost: <%= rental.total_cost %></p>
+      <%# </div>
+      <hr>
+    <% end %>
+  <%# <% else %>
+    <%# <p>No rented equipment records found.</p>
   <% end %>
-</div>
+<%# </section> %>
+<%#  %>
+<%# </div> %>
+<%#  %>
