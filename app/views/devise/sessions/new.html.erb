@@ -1,8 +1,9 @@
 <div class="small-container">
-  <div class="smaller-container">
-    <h2>Log in</h2>
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="smaller-container">
+
+    <h2>Log in</h2>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data:{turbo: :false}) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
                     required: false,
@@ -13,12 +14,21 @@
                     input_html: { autocomplete: "current-password" } %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
-
       <div class="form-actions">
         <%= f.button :submit, "Log in" %>
       </div>
     <% end %>
-
     <%= render "devise/shared/links" %>
   </div>
+  <%# Slider Display LogIn %>
+    <div class="offcanvas offcanvas-bottom position-absolute canvas-color" tabindex="-1" id="offcanvasLogIn" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header text-center">
+        <h4 class="offcanvas-title" id="offcanvasExampleLabel">My Profile</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div>
+          <p><%= link_to "Login", new_user_session_path %></p>
+        </div>
+      </div>
+    </div>
+    <%# slider Display LogIn end %>
 </div>

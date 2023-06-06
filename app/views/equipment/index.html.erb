@@ -1,4 +1,21 @@
 <div class="container">
+<%# Slider Display LogIn %>
+<div class="offcanvas offcanvas-bottom position-absolute canvas-color" tabindex="-1" id="offcanvasLogIn" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header text-center">
+      <h4 class="offcanvas-title" id="offcanvasExampleLabel">My Profile</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div>
+      <p><%= link_to "Login", new_user_session_path %></p>
+      <p><%= button_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></p>
+    </div>
+    </div>
+
+  <%# slider Display LogIn end %>
+
+
+
+
   <%# Slider Display Listings %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header text-center">
@@ -19,7 +36,6 @@
       <% end %>
     </div>
   </div>
-  <%# slider Display Listings end %>
   <%# Slider Add Listing %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header text-center p-3 ">
@@ -83,5 +99,6 @@
         </div>
       <% end %>
     </div>
+
   </div>
 </div>

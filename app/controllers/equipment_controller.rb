@@ -1,13 +1,16 @@
 class EquipmentController < ApplicationController
   # skip_before_action :authentication_user!, only: :index
+  before_action :authenticate_user!, only: [:create]
 
   def index
     @equipment = Equipment.all
     if params[:search].present?
       @equipment = Equipment.search_by_name(params[:search])
     end
+
     @equipment_new = Equipment.new
     @rental = Rental.all
+    @user = current_user
 
     @user_equipment = @equipment.where(user_id: @user)
     @user_rental = @rental.where(user_id: @user)
@@ -18,9 +21,13 @@ class EquipmentController < ApplicationController
 
   def create
     @equipment = Equipment.new(equipment_params)
-    @equipment.user = current_user
+    # @user = User.find(current_user.id)
+
+    @user = current_user
+    @equipment.user = @user
+
     if @equipment.save
-      redirect_to root_path(@equipment)
+      redirect_to root_path(@equipment), notice: "Listing was successfully created."
     else
       render :index, status: :unprocessable_entity
     end
