@@ -1,8 +1,9 @@
 <div class="container">
+  <%= render "/shared/loginslider" %>
   <%# Slider Display Listings %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header text-center">
-      <h4 class="offcanvas-title" id="offcanvasExampleLabel">My Listings</h4>
+      <h4 class="offcanvas-title text-success" id="offcanvasExampleLabel">My Listings</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <%# display listings %>
@@ -12,18 +13,17 @@
         <hr style='color: white;'>
       <% end %>
       <%# display rentals %>
-      <h4 class="my-4">My Rentals</h4>
+      <h4 class="my-4 text-success">My Rentals</h4>
       <% @user_rental.each do |element| %>
         <p><%= element.equipment.name %></p>
         <hr style='color: white;'>
       <% end %>
     </div>
   </div>
-  <%# slider Display Listings end %>
   <%# Slider Add Listing %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-75 canvas-color" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header text-center p-3 ">
-      <h4 id="offcanvas-title">Add Listing</h4>
+      <h4 id="offcanvas-title" class="text-success">Add Listing</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="col-12 col-sm-6">

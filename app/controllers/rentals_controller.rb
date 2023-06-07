@@ -1,9 +1,10 @@
 class RentalsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   def create
     @equipment = Equipment.find(params[:equipment_id])
     @rental = Rental.new(rental_params)
     @rental.equipment = @equipment
-    @user = User.find(current_user.id)
+    @user = current_user
     @rental.user = @user
     if @rental.save
       redirect_to equipment_path(@equipment), notice: "Rental was successfully created."
