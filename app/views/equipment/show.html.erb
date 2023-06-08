@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-      <div class="col-md-6">
+  <div class="col-md-6">
     <div class="card">
       <div class="card-body">
         <%= simple_form_for([@equipment, @rental], data: { turbo: :false }) do |f| %>
@@ -22,6 +22,7 @@
   <%= f.input :return_date, as: :string, input_html: { class: "form-control datepicker", placeholder: "Pick a return date" } %>
   <%= f.button :submit, "Rent", class: "btn btn-primary" %>
 <% end %>
+
       </div>
     </div>
   </div>
@@ -50,15 +51,4 @@
   <% else %>
     <p>No rented equipment records found.</p>
   <% end %>
-
-  <% if @equipment.available? %>
-    <%= simple_form_for([@equipment, @rental], data: { turbo: :false }, input_html: { class: "animated" }) do |f| %>
-      <%= f.input :rented_date, as: :string, input_html: { class: "form-control datepicker", placeholder: "Pick a rent date", data: { target: "datepicker.input" } } %>
-      <%= f.input :return_date, as: :string, input_html: { class: "form-control datepicker", placeholder: "Pick a return date", data: { target: "datepicker.input" } } %>
-      <%= f.button :submit, "Rent", class: "btn btn-primary" %>
-    <% end %>
-  <% else %>
-    <p>This equipment is currently not available for rent.</p>
-  <% end %>
-</div>
 </div>

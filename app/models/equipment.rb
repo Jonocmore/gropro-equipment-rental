@@ -11,6 +11,6 @@ class Equipment < ApplicationRecord
     }
 
   def available?
-    rentals.where("return_date > ?", Date.today).empty?
+    rented.zero?
   end
 end

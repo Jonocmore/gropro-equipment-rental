@@ -13,6 +13,8 @@
 
  <title>My Rental Form</title>
     <!-- Add the required stylesheets -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
   </head>
@@ -29,9 +31,6 @@
             $('.datepicker').datepicker();
         });
     </script> %>
-
-
-
     <%= render "shared/header" %>
     <%= render "shared/flashes" %>
     <%= yield %>
