@@ -9,4 +9,8 @@ class Equipment < ApplicationRecord
     using: {
       tsearch: { prefix: true },
     }
+
+  def available?
+    rentals.where("return_date > ?", Date.today).empty?
+  end
 end
