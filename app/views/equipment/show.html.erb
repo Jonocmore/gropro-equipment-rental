@@ -14,38 +14,48 @@
         </div>
       </div>
     </div>
-      <div class="col-md-6">
+     </div>
+     <div class="icons-wrapper">
+    <div class="col-12">
+      <%= link_to "#offcanvasLeft", "data-bs-toggle" => "offcanvas" do %><%= image_tag "menu_icon.svg", class: "menu-icon" %> <% end %>
+      <%= link_to "#offcanvasRight", "data-bs-toggle" => "offcanvas" do %><%= image_tag "add_icon.svg", class: "add-icon" %> <% end %>
+    </div>
+  </div>
+  <div class="col-md-6">
     <div class="card">
       <div class="card-body">
-        <%= simple_form_for([@equipment, @rental], data: { turbo: :false }, input_html: { class: 'animated' }) do |f| %>
-         <%= f.input :rented_date, as: :string, input_html: { class: 'form-control datepicker', placeholder: 'Pick a rent date' } %>
-  <%= f.input :return_date, as: :string, input_html: { class: 'form-control datepicker', placeholder: 'Pick a return date' } %>
-  <%= f.button :submit, 'Rent', class: 'btn btn-primary' %>
+        <%= simple_form_for([@equipment, @rental], data: { turbo: :false }) do |f| %>
+         <%= f.input :rented_date, as: :string, input_html: { class: "form-control datepicker", placeholder: "Pick a rent date" } %>
+  <%= f.input :return_date, as: :string, input_html: { class: "form-control datepicker", placeholder: "Pick a return date" } %>
+  <%= f.button :submit, "Rent", class: "btn btn-primary" %>
 <% end %>
+
       </div>
     </div>
   </div>
+
   <div class="equipment-image mt-4">
     <%= image_tag @equipment.photo, alt: @equipment.name %>
     <%= link_to "Back to all equipment", root_path, data: { turbo: :false }, class: "btn btn-secondary mt-3" %>
   </div>
 
-  <%# <section class="rented-equipment">
+<div style="background-color: white;">
   <h4>Rented Equipment:</h4>
-  <% if @equipment.rentals.any? %>
-    <%# <% @equipment.rentals.each do |rental| %>
-      <%# <div class="rental-details">
-        <p>Rented Date: <%= rental.rented_date %></p>
-        <%# <p>Return Date: <%= rental.return_date %></p>
-        <%# <p>Duration: <%= rental.duration %></p>
-        <%# <p>Total Cost: <%= rental.total_cost %></p>
-      <%# </div>
-      <hr>
-    <% end %>
-  <%# <% else %>
-    <%# <p>No rented equipment records found.</p>
+  <% rented_equipment = @equipment.rentals.where(user: current_user).order(rented_date: :desc) %>
+  <% if rented_equipment.any? %>
+    <% current_rental = rented_equipment.first %>
+    <div class="rental-details">
+      <p>Equipment Name: <%= @equipment.name %></p>
+      <p>Rented Date: <%= current_rental.rented_date %></p>
+      <p>Return Date: <%= current_rental.return_date %></p>
+      <% if current_rental.duration.present? %>
+        <p>Duration: <%= current_rental.duration %></p>
+      <% end %>
+      <% if current_rental.total_cost.present? %>
+        <p>Total Cost: <%= current_rental.total_cost %></p>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No rented equipment records found.</p>
   <% end %>
-<%# </section> %>
-<%#  %>
-<%# </div> %>
-<%#  %>
+</div>
