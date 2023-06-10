@@ -9,8 +9,4 @@ class Equipment < ApplicationRecord
     using: {
       tsearch: { prefix: true },
     }
-
-  def available?
-    rented.zero?
-  end
 end

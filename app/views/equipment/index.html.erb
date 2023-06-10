@@ -1,18 +1,18 @@
 <div class="container">
   <%= render "/shared/loginslider" %>
-  <% # Slider Display Listings %>
+  <%# Slider Display Listings %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-100 h-100 canvas-color" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header text-center">
       <h4 class="offcanvas-title text-success" id="offcanvasExampleLabel">My Listings</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <% # display listings %>
+    <%# display listings %>
     <div class="offcanvas-body">
       <% @user_equipment.each do |element| %>
         <p><%= element.name %></p>
         <hr style='color: white;'>
       <% end %>
-      <% # display rentals %>
+      <%# display rentals %>
       <h4 class="my-4 text-success">My Rentals</h4>
       <% @user_rental.each do |element| %>
         <p><%= element.equipment.name %></p>
@@ -20,7 +20,7 @@
       <% end %>
     </div>
   </div>
-  <% # Slider Add Listing %>
+  <%# Slider Add Listing %>
   <div class="offcanvas offcanvas-start position-absolute end-75 w-100 h-100 canvas-color" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header text-center p-3 ">
       <h4 id="offcanvas-title" class="text-success">Add Listing</h4>
@@ -29,20 +29,20 @@
     <div class="col-12 col-sm-6">
       <div class="rounded p-3">
         <div class="offcanvas-body p-0">
-          <%= simple_form_for(@equipment_new, data: { turbo: :false }) do |f| %>
+          <%= simple_form_for(@equipment_new, data:{turbo: :false}) do |f| %>
             <%= f.input :name %>
             <%= f.input :category %>
             <%= f.input :description %>
             <%= f.input :price %>
             <%= f.input :location %>
             <%= f.input :photo, as: :file %>
-            <%= f.button :submit, "Add Listing", class: "btn btn-secondary mt-2" %>
+            <%= f.button :submit, 'Add Listing', class:"btn btn-secondary mt-2" %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-  <% # slider add Listing end %>
+  <%# slider add Listing end %>
   <div class="icons-wrapper">
     <div class="col-12">
       <%= link_to "#offcanvasLeft", "data-bs-toggle" => "offcanvas" do %><%= image_tag "menu_icon.svg", class: "menu-icon" %> <% end %>
@@ -50,9 +50,9 @@
     </div>
   </div>
   <div class="search-bar">
-    <%= form_tag(root_path, method: :get, data: { turbo: :false }) do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Equipment", width: 400 %>
-      <%= submit_tag "Search" %>
+    <%= form_tag(root_path, method: :get, data:{turbo: :false}) do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search Equipment', width: 400 %>
+      <%= submit_tag 'Search' %>
     <% end %>
     <% if @results %>
       <% @results.each do |equipment| %>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="equipment-card-back d-flex flex-column justify-content-center align-items-center">
                   <p><%= item.description %></p>
-                  <%= link_to "Rent", equipment_path(item) %>
+                  <%= link_to 'Rent', equipment_path(item) %>
                 </div>
               </div>
             </div>
